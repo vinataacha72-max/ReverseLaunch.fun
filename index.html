@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Re-Verse — The Launchpad, Backwards</title>
+  <meta name="description" content="Re-Verse is a multi-chain token launchpad on Solana & Robinhood Chain. Buyers first. Coin second. Fair launches with creator fee routing and $REVERSE buybacks." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            reverse: {
+              black: '#0a0a0b',
+              dark: '#111113',
+              gray: '#1a1a1e',
+              neon: '#e8e8e8',
+              accent: '#a0a0ff',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'glow': 'glow 2.5s ease-in-out infinite alternate',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            glow: {
+              '0%': { filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.4))' },
+              '100%': { filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.8))' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0a0a0b;
+      color: #e8e8e8;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #c0c0ff 50%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card {
+      background: linear-gradient(145deg, #141416 0%, #0f0f11 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .card:hover {
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 0 30px rgba(160,160,255,0.08);
+    }
+    .neon-border {
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 0 40px rgba(160,160,255,0.1);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #ffffff 0%, #d0d0ff 100%);
+      color: #0a0a0b;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255,255,255,0.25);
+    }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .section-title {
+      letter-spacing: -0.03em;
+    }
+    .timeline-line {
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/60 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="reverse-logo.jpg" alt="Re-Verse" class="h-9 w-auto animate-glow" />
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+        <a href="#how" class="hover:text-white transition">How it works</a>
+        <a href="#tokenomics" class="hover:text-white transition">Tokenomics</a>
+        <a href="#chains" class="hover:text-white transition">Chains</a>
+        <a href="#roadmap" class="hover:text-white transition">Roadmap</a>
+      </div>
+      <a href="#waitlist" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">
+        Join Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-6 overflow-hidden">
+    <!-- subtle glow -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px]"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto text-center">
+      <div class="mb-10 flex justify-center">
+        <img src="reverse-logo.jpg" alt="Re-Verse Logo" class="h-28 md:h-36 w-auto animate-glow animate-float" />
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight section-title mb-6">
+        The Launchpad,<br>
+        <span class="gradient-text">Backwards.</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Buyers first. Coin second. Dev last.<br>
+        Fair multi-chain launches on <span class="text-white font-medium">Solana</span> & <span class="text-white font-medium">Robinhood Chain</span> with creator fee routing and $REVERSE buybacks.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#waitlist" class="btn-primary px-8 py-3.5 rounded-full font-semibold text-base">
+          Get Early Access
+        </a>
+        <a href="#how" class="btn-outline px-8 py-3.5 rounded-full font-medium text-base text-white">
+          See How It Works
+        </a>
+      </div>
+
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-white/40">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-green-400"></div>
+          Non-custodial
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+          Dual-chain
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-purple-400"></div>
+          Anti-snipe by design
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">How Re-Verse Works</h2>
+        <p class="text-white/50 max-w-xl mx-auto">We flipped the launch order so snipers and insiders no longer get the best price.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Step 1 -->
+        <div class="card rounded-2xl p-8 relative">
+          <div class="text-5xl font-bold text-white/10 absolute top-4 right-6">01</div>
+          <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-xl">📥</div>
+          <h3 class="text-xl font-semibold mb-3">Queue First</h3>
+          <p class="text-white/55 text-sm leading-relaxed">
+            A round opens with name, ticker & image. No contract address exists yet. Anyone can deposit SOL / ETH into the queue during a fixed window (10–30 min).
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card rounded-2xl p-8 relative">
+          <div class="text-5xl font-bold text-white/10 absolute top-4 right-6">02</div>
+          <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-xl">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">Coin is Born</h3>
+          <p class="text-white/55 text-sm leading-relaxed">
+            When the timer ends, the program creates the token and executes the entire queue buy in a single atomic transaction. Everyone gets the same entry price.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card rounded-2xl p-8 relative">
+          <div class="text-5xl font-bold text-white/10 absolute top-4 right-6">03</div>
+          <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-xl">🔥</div>
+          <h3 class="text-xl font-semibold mb-3">Dev Last</h3>
+          <p class="text-white/55 text-sm leading-relaxed">
+            The creator cannot join the queue. Creator fees flow to the round participants (or X handle) and a portion permanently buys & burns $REVERSE.
+          </p>
+        </div>
+      </div>
+
+      <!-- Alternative mode note -->
+      <div class="mt-10 card rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+        <div class="flex-1">
+          <h4 class="font-semibold mb-1">Also supporting classic mode</h4>
+          <p class="text-sm text-white/50">Prefer a normal bonding-curve launch? Re-Verse supports both Reverse Mode (queue) and Classic Mode (instant bonding curve) on Solana and Robinhood Chain.</p>
+        </div>
+        <div class="text-sm font-mono text-white/40 px-4 py-2 rounded-lg bg-white/5">
+          Solana · Robinhood Chain
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chains -->
+  <section id="chains" class="py-24 px-6 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Dual-Chain from Day One</h2>
+        <p class="text-white/50 max-w-xl mx-auto">One interface. Two ecosystems. Launch wherever the liquidity and narrative are strongest.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Solana -->
+        <div class="card rounded-2xl p-8 neon-border">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-green-400 flex items-center justify-center text-lg font-bold">◎</div>
+            <div>
+              <h3 class="text-xl font-semibold">Solana</h3>
+              <p class="text-xs text-white/40">SPL · Raydium / Pump-style</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Reverse queue launches</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Classic bonding curve</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Custom quote assets (SOL, USDC, xStocks…)</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Creator fee → holders or X handle</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Auto $REVERSE buyback & burn</li>
+          </ul>
+        </div>
+
+        <!-- Robinhood Chain -->
+        <div class="card rounded-2xl p-8 neon-border">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-300 flex items-center justify-center text-lg font-bold text-black">R</div>
+            <div>
+              <h3 class="text-xl font-semibold">Robinhood Chain</h3>
+              <p class="text-xs text-white/40">EVM · Arbitrum Orbit · Chain ID 4663</p>
+            </div>
+          </div>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Reverse queue launches</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Bonding curve → Uniswap V4</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Quote in ETH / USDG / Stock Tokens</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Creator fee routing</li>
+            <li class="flex gap-2"><span class="text-green-400">✓</span> Same $REVERSE flywheel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics -->
+  <section id="tokenomics" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">$REVERSE Tokenomics</h2>
+        <p class="text-white/50 max-w-xl mx-auto">Every successful launch feeds the flywheel. Revenue is transparent and mostly returned to the ecosystem.</p>
+      </div>
+
+      <!-- Fee Split -->
+      <div class="card rounded-2xl p-8 md:p-10 mb-10">
+        <h3 class="text-lg font-semibold mb-6 text-center">Revenue Split (per claim)</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-4xl font-bold gradient-text mb-2">70%</div>
+            <div class="text-sm font-medium mb-1">Creators / Queue</div>
+            <p class="text-xs text-white/45">Paid to token creators or original queue participants (and optionally routed to X handles like PAID)</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold gradient-text mb-2">20%</div>
+            <div class="text-sm font-medium mb-1">Buy & Burn $REVERSE</div>
+            <p class="text-xs text-white/45">Market buys of $REVERSE followed by permanent burn. Deflationary pressure on every claim.</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold gradient-text mb-2">10%</div>
+            <div class="text-sm font-medium mb-1">Treasury / Growth</div>
+            <p class="text-xs text-white/45">Protocol development, audits, liquidity incentives, and ecosystem grants.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Token utilities -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card rounded-2xl p-7">
+          <h4 class="font-semibold mb-4 flex items-center gap-2">
+            <span class="text-lg">🎯</span> Utility of $REVERSE
+          </h4>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li class="flex gap-2"><span class="text-white/30">→</span> Reduced platform fees for holders</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> Priority access / higher queue caps</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> Governance over new chain integrations & parameters</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> Staking for boosted creator rewards</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> Exclusive reverse-mode rounds</li>
+          </ul>
+        </div>
+
+        <div class="card rounded-2xl p-7">
+          <h4 class="font-semibold mb-4 flex items-center gap-2">
+            <span class="text-lg">♻️</span> Flywheel Mechanics
+          </h4>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li class="flex gap-2"><span class="text-white/30">→</span> More launches → more fees claimed</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> More burns → lower circulating supply</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> Stronger $REVERSE → more people stake & launch</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> Transparent on-chain claims & burn transactions</li>
+            <li class="flex gap-2"><span class="text-white/30">→</span> No team unlock schedule that dumps on holders</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Supply note -->
+      <div class="mt-8 text-center text-sm text-white/40">
+        Final supply, distribution, and launch details will be published before TGE.  
+        All buybacks and burns are executed on-chain and publicly verifiable.
+      </div>
+    </div>
+  </section>
+
+  <!-- Features highlight -->
+  <section class="py-24 px-6 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Built Different</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="card rounded-xl p-6 text-center">
+          <div class="text-2xl mb-3">🛡️</div>
+          <h4 class="font-medium mb-1">Anti-Snipe by Design</h4>
+          <p class="text-xs text-white/45">No CA until the queue closes. Everyone enters at the same price.</p>
+        </div>
+        <div class="card rounded-xl p-6 text-center">
+          <div class="text-2xl mb-3">🔗</div>
+          <h4 class="font-medium mb-1">True Dual-Chain</h4>
+          <p class="text-xs text-white/45">Same experience on Solana and Robinhood Chain.</p>
+        </div>
+        <div class="card rounded-xl p-6 text-center">
+          <div class="text-2xl mb-3">💸</div>
+          <h4 class="font-medium mb-1">Creator Fee Routing</h4>
+          <p class="text-xs text-white/45">Fees can go to wallets or X handles (PAID-style).</p>
+        </div>
+        <div class="card rounded-xl p-6 text-center">
+          <div class="text-2xl mb-3">🔥</div>
+          <h4 class="font-medium mb-1">Permanent Burns</h4>
+          <p class="text-xs text-white/45">20% of every claim buys and burns $REVERSE forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Roadmap</h2>
+      </div>
+
+      <div class="space-y-0 relative">
+        <div class="absolute left-[19px] top-2 bottom-2 w-px timeline-line"></div>
+
+        <div class="flex gap-6 relative">
+          <div class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm shrink-0 z-10">1</div>
+          <div class="pb-10">
+            <h4 class="font-semibold">Phase 1 — Foundation</h4>
+            <p class="text-sm text-white/50 mt-1">Website live · Brand identity · Waitlist · Core architecture & security review</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 relative">
+          <div class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10">2</div>
+          <div class="pb-10">
+            <h4 class="font-semibold">Phase 2 — Solana Launch</h4>
+            <p class="text-sm text-white/50 mt-1">Reverse Mode + Classic Mode live on Solana · $REVERSE TGE · First public rounds</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 relative">
+          <div class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10">3</div>
+          <div class="pb-10">
+            <h4 class="font-semibold">Phase 3 — Robinhood Chain</h4>
+            <p class="text-sm text-white/50 mt-1">Full dual-chain support · Cross-chain fee claims · Stock-token quote assets</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 relative">
+          <div class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10">4</div>
+          <div>
+            <h4 class="font-semibold">Phase 4 — Expansion</h4>
+            <p class="text-sm text-white/50 mt-1">Advanced analytics · Governance live · More quote assets · Ecosystem partnerships</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waitlist -->
+  <section id="waitlist" class="py-24 px-6">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold section-title mb-4">Join the Waitlist</h2>
+      <p class="text-white/50 mb-8">Be first to launch and trade on Re-Verse. Early access for waitlist members.</p>
+
+      <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); alert('Thanks! You are on the waitlist. (This is a demo form)');">
+        <input 
+          type="email" 
+          placeholder="your@email.com" 
+          required
+          class="flex-1 px-5 py-3.5 rounded-full bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-white/30"
+        />
+        <button type="submit" class="btn-primary px-8 py-3.5 rounded-full font-semibold whitespace-nowrap">
+          Join Waitlist
+        </button>
+      </form>
+      <p class="mt-4 text-xs text-white/30">No spam. Only launch updates.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-12 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="reverse-logo.jpg" alt="Re-Verse" class="h-8 w-auto opacity-80" />
+        <span class="text-sm text-white/40">© 2026 Re-Verse. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6 text-sm text-white/40">
+        <a href="#" class="hover:text-white transition">Twitter / X</a>
+        <a href="#" class="hover:text-white transition">Telegram</a>
+        <a href="#" class="hover:text-white transition">Docs</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
